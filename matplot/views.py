@@ -11,64 +11,30 @@ from django.views.decorators.csrf import csrf_exempt
 from pandas_datareader import data
 from self import self
 
-from .forms import NameForm
-from .models import Company
+from django.shortcuts import render
+from matplot.models import Post
+from django.views.generic.list import ListView
+
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from django.shortcuts import render
 
 
-def get_name(request):
-    # if this is a POST request we need to process the form data
-    if request.method == 'POST':
-        # create a form instance and populate it with data from the request:
-        form = NameForm(request.POST)
-        # check whether it's valid:
-        if form.is_valid():
-            # process the data in form.cleaned_data as required
-            # ...
-            # redirect to a new URL:
-            return HttpResponseRedirect('/thanks/')
-
-    # if a GET (or any other method) we'll create a blank form
-    else:
-        form = NameForm()
-
-    return render(request, 'home.html', {'form': form})
+def experiment(request):
+    numbers_list = range(1, 1000)
+    page = request.GET.get('page', 1)
+    paginator = Paginator(numbers_list, 20)
+    try:
+        numbers = paginator.page(page)
+    except PageNotAnInteger:
+        numbers = paginator.page(1)
+    except EmptyPage:
+        numbers = paginator.page(paginator.num_pages)
+    return render(request, 'experiment.html', {'numbers': numbers})
 
 
 @csrf_exempt
 def home(request):
-    from matplot import Reddit
-    import requests
-    reddit = Reddit
-    url = (Reddit.redditimage(reddit.getmemeUrls(), len(reddit.getmemeUrls()) - 1))
-    from PIL import Image
-    import requests
-    from io import BytesIO
-    import base64
-    from django.core.files import File
-
-    output = BytesIO()
-
-    response = requests.get(url)
-
-    reopen = open
-
-    with open("sample_image", "wb") as f:
-        f.write(response.content)
-
-    reopen = open("sample_image", "rb")
-    django_file = File(reopen)
-
-    revsys = Company()
-    entrys = Company.objects.all()
-    entrys.delete
-    blog = Company.objects.all()
-
-    import shutil
-    shutil.rmtree('media')
-    revsys.name = "Revolution Systems"
-    revsys.logo.save("meme.jpg", django_file, save=True)
-
-    return render(request, 'home.html', {'data': url})
+    return render(request, 'home.html')
 
 
 @csrf_exempt
@@ -80,6 +46,8 @@ def add(request):
     type = request.GET['chart']
     crypto = crypto + '-USD'
 
+    average = request.GET['rolling average']
+
     # Start datareader parse at 120 days ago
     startparse_ = datetime.today() - timedelta(days=int(120))
 
@@ -90,13 +58,13 @@ def add(request):
 
     crypto_data_frame = data.DataReader(crypto, 'yahoo', startparse_, endparse_)
 
-    if (type == 'Moving Average'):
-        crypto_data_frame['Close'].loc[startparse_:endparse_].rolling(window=int(10)).mean().plot(
+    if type == 'Moving Average':
+        crypto_data_frame['Close'].loc[startparse_:endparse_].rolling(window=int(average)).mean().plot(
             label='Moving Average 10 rolling')
 
     crypto_data_frame['Close'].loc[startparse_:endparse_].plot(label=crypto + ' Price')
 
-    plt.title("ff")
+    plt.title("Your data plotted")
     fig = plt.gcf()
 
     buf = io.BytesIO()
@@ -113,17 +81,21 @@ self.arts = ''
 
 def art(request):
     from matplot import Reddit
-    reddit = Reddit
+    reddit = Reddit.Reddit()
     urls = []
-    url1 = str((Reddit.redditimage(reddit.getartUrls(), len(reddit.getartUrls()) - 1)))
-    data_type = url1[-4:]
 
-    while '.jpg' != data_type and '.png' != data_type and '.gif' != data_type:
-        url1 = str((Reddit.redditimage(reddit.getartUrls(), len(reddit.getartUrls()) - 1)))
-    urls += "<ol> <img src =  '" + str(url1) + " ' alt='no image' height '600' width= '465'> </ol> "
+    for i in range(4):
+        url1 = str((Reddit.redditimage(reddit.artUrls, len(reddit.artUrls) - 1)))
+        data_type = url1[-4:]
+
+        while '.jpg' != data_type and '.png' != data_type and '.gif' != data_type:
+            url1 = str((Reddit.redditimage(reddit.artUrls, len(reddit.artUrls) - 1)))
+            data_type = url1[-4:]
+
+        urls += "<ol> <img src =  '" + str(url1) + " ' alt='no image' height '600' width= '465'> </ol> "
 
     for i in range(len(urls)):
-        self.arts += urls[i]
+            self.arts += urls[i]
 
     return render(request, 'art.html', {'art': self.arts})
 
@@ -133,16 +105,20 @@ self.memes = ''
 
 def meme(request):
     from matplot import Reddit
-    reddit = Reddit
+    reddit = Reddit.Reddit()
     urls = []
-    url1 = str((Reddit.redditimage(reddit.getmemeUrls(), len(reddit.getmemeUrls()) - 1)))
-    data_type = url1[-4:]
 
-    while '.jpg' != data_type and '.png' != data_type and '.gif' != data_type:
-        print(url1)
-        url1 = str((Reddit.redditimage(reddit.getmemeUrls(), len(reddit.getmemeUrls()) - 1)))
+    for i in range(4):
+        url1 = str((Reddit.redditimage(reddit.memeUrls, len(reddit.memeUrls) - 1)))
+        data_type = url1[-4:]
 
-    urls += "<li> <img src =  '" + str(url1) + " ' alt='no image' height '600' width= '465'> </li> "
+        while '.jpg' != data_type and '.png' != data_type and '.gif' != data_type:
+            print(url1)
+            url1 = str((Reddit.redditimage(reddit.memeUrls, len(reddit.memeUrls) - 1)))
+            data_type = url1[-4:]
+
+        urls += "<li> <img src =  '" + str(url1) + " ' alt='no image' height '600' width= '465'> </li> "
+
     for i in range(len(urls)):
         self.memes += urls[i]
 
@@ -157,10 +133,14 @@ def story(request):
     from matplot import Reddit
     reddit = Reddit
     stories = []
-    story = "<li>" + str(reddit.copypasta()) + "</li> <br>"
-    stories += story
+    _story = "<li>" + str(reddit.copypasta()) + "</li> <br>"
+    stories += _story
 
     for i in range(len(stories)):
         self.ensemble += stories[i]
 
     return render(request, 'story.html', {'story': self.ensemble})
+
+
+def definitions(request):
+    return render(request, 'definitions.html')

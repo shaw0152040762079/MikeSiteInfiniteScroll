@@ -24,11 +24,16 @@ BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
 
 SECRET_KEY = os.environ['django']
 
+STATIC_ROOT = "C:/Users/User/PycharmProjects/mysite/matplot/static"
+
+
+
+STATIC_URL='/static/'
+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
 ALLOWED_HOSTS = ['*']
-
 
 # Application definition
 
@@ -40,6 +45,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'matplot',
+    'jquery',
     'django_cleanup',  # should go after your apps
 ]
 

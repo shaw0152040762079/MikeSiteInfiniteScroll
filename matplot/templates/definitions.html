@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+
+</style>
+</head>
+<body>
+
+<h2>HTML Table</h2>
+
+<table>
+  <tr>
+    <th>Term</th>
+    <th>Definition</th>
+
+  </tr>
+  <tr>
+    <td>Training data</td>
+    <td>
+    <ul>
+    <li> Used to train model parameters
+Validation Data</li>
+<li>used to determine what model hyperparameters to adjust
+test data</li>
+<li>used to get some final performance Metric
+</li></ul>
+</td>
+
+  </tr>
+  <tr>
+    <td>RECALL</td>
+    <td><ul>
+    <li>Ability of a model to find all relevant cases within a data set</li>
+<li>number of true postives / number of true postives + false negatives
+</li>
+</ul>
+</td>
+
+  </tr>
+  <tr>
+    <td>PRECISION</td>
+    <td><ul><li> ability of a classficiation mdoel to identify only relevant data points
+    </li>
+<li> number of true positves / number of true positives + false positives
+</li>
+</ul>
+</td>
+
+  </tr>
+  <tr>
+    <td>Precision VS recall</td>
+    <td><ul><li>
+     Often a trade off between recall and precision</li>
+    </ul></td>
+
+  </tr>
+  <tr>
+    <td>F1 Score</td>
+    <td><ul><li>In cases where we want to find an optimal blend of the two</li>
+<li>Uses harmonic mean instead of a simple average to punish extreme values</li>
+<li>A classifier with a precision of 1.0 and
+a recall of 0.0 with a simple average of 0.5 but an f1 of 0
+f1 = 2* (precision * recall/ precision + recall)</li></ul></td>
+
+  </tr>
+  <tr>
+    <td>Mean absolute error (MAE)</td>
+    <td><ul> <li>Mean of the the absolute value
+    <li>
+Won't punish large errors </li> </ul></td>
+
+  </tr> <tr>
+    <td>Mean absolute squared error (MSE)</td>
+    <td><ul><li> Mean of the squared errors </li>
+<li>Larger errors are more noted here compared to MAE </li>  </ul></td>
+
+  </tr> <tr>
+    <td>Common sense</td>
+    <td>   Compare error metric to the average value of the label in your data
+set to try and get an intuition of its overall performance
+Domain knowledge is key
+</td>
+
+  </tr> <tr>
+    <td>K NEAREST</td>
+    <td>k= The number of points close to the new point taken to conclude what the value is
+IE k = 6 And 4 are blue and 2 are red system will predict blue if k = 3 and 2 are red and 1 is blue
+will predict red
+Cons: high prediciton cost , not good with high demensional data, categorical features dont work well
+</td>
+
+  </tr>
+   <tr>
+    <td>DECISION TREES</td>
+    <td>Root node is the first node
+Nodes split for the value of certain attributes
+Edges are the outcome of splits to the next node</td>
+
+  </tr>
+
+</table>
+
+</body>
+</html>
+</body>
+</html>

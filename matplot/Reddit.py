@@ -14,7 +14,8 @@ class Reddit(object):
 
     self.posturl = ''
 
-    self.artUrls: Dict[Union[int, Any], Union[str, Any]] = {0: 'Portraitart',
+    def __init__(self):
+        self.artUrls: Dict[Union[int, Any], Union[str, Any]] = {0: 'Portraitart',
                     1: 'Art',
                     2: 'painting',
                     3: 'PixelArt',
@@ -26,16 +27,14 @@ class Reddit(object):
                     9: 'VaporwaveAesthetics',
                     10: 'Gouache'}
 
-    self.memeUrls = {0: 'dankmemes',
+        self.memeUrls = {0: 'dankmemes',
                      1: 'plantmemes',
                      2: 'chasersriseup',
                      3: 'comedyheaven'}
 
 
 
-    self.urlcopypasta = {0: "https://www.reddit.com/r/copypasta/"}
 
-    self.urlcopypasta = {0: "https://www.reddit.com/r/copypasta/"}
 
 
 def getpost(url):

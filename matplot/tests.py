@@ -5,12 +5,7 @@ import os
 
 from matplot import Reddit
 
+reddit = Reddit.Reddit()
+print(reddit.memeUrls)
+print(url1 = str((Reddit.redditimage(reddit.memeUrls, len(reddit.memeUrls) - 1))))
 
-
-reddit = Reddit
-
-reddit = Reddit
-fig = (Reddit.redditimage(reddit.getmemeUrls(), len(reddit.getmemeUrls()) - 1))
-print(fig)
-
-reddit.copypasta()

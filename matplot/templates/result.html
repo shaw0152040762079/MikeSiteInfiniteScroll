@@ -16,6 +16,9 @@ body {
 .topnav {
   overflow: hidden;
   background-color: #BBBE64;
+  position: fixed;
+  top: 0;
+  width: 100%;
   background: conic-gradient(from 0.74deg at 50% 50%, #F5FCFF -9.38deg, rgba(88, 31, 98, 0.739583) 93.75deg, rgba(245, 252, 255, 0) 125.66deg, #883452 325.85deg, #F5FCFF 350.63deg, rgba(88, 31, 98, 0.739583) 453.75deg);
 }
 
@@ -129,18 +132,22 @@ div {
 	border-radius: 50%;
 	background: white;
 }
+.main {
+  padding: 16px;
+  margin-top: 60px;
+}
 </style>
 
 <div class="topnav">
   <a  href="/">Home</a>
-  <a class="active" href="meme">Meme</a>
+  <a  href="meme">Meme</a>
   <a href="story">Copypasta</a>
   <a href="#about">About</a>
 </div>
 
 <body>
-
+<div class="main">
 <img src ="data:image/png;base64,{{ data2 }}" alt="" height="700" width="1000">
-
+</div>
 </body>
 </html>

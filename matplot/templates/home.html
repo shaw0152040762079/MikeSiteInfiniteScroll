@@ -16,6 +16,9 @@ body {
   overflow: hidden;
   background-color: conic-gradient(from 0.74deg at 50% 50%, #F5FCFF -9.38deg, rgba(88, 31, 98, 0.739583) 93.75deg, rgba(245, 252, 255, 0) 125.66deg, #883452 325.85deg, #F5FCFF 350.63deg, rgba(88, 31, 98, 0.739583) 453.75deg);
 mix-blend-mode: normal;
+position: fixed;
+top: 0;
+  width: 100%;
 background: conic-gradient(from 0.74deg at 50% 50%, #F5FCFF -9.38deg, rgba(88, 31, 98, 0.739583) 93.75deg, rgba(245, 252, 255, 0) 125.66deg, #883452 325.85deg, #F5FCFF 350.63deg, rgba(88, 31, 98, 0.739583) 453.75deg);
 }
 
@@ -129,6 +132,7 @@ div {
 	border-radius: 50%;
 	background: white;
 }
+
 </style>
 <body>
 
@@ -142,12 +146,16 @@ div {
   <a href="art">Art</a>
 </div>
 
-
+<br>
+<br>
+<br>
+<br>
 <div>
 <form action="add" >
     <label for="crypto">Choose the Crypto:</label>
     <input id="crypto" type = "text" name="crypto">
-
+ <label for="rolling average">Choose rolling average (Only for rolling average option):</label>
+    <input id="rolling average" type = "text" name="rolling average">
     <br>
       <br>
     <label for="back">Choose the background:</label>
@@ -164,13 +172,11 @@ div {
       <br>
       <input type="radio"   id="default" name="chart" value="default">
   <label for="default">default</label><br>
-  <input type="radio"  checked="checked" id="regression" name="chart" value="regression">
-  <label for="regression">regression</label><br>
   <input type="radio" id="Moving Average" name="chart" value="Moving Average">
   <label for="Moving Average">Moving Average</label>
         <input type = "submit">
 </form>
 
-</div>
 
+</div>
 </html>
