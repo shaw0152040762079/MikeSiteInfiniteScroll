@@ -129,7 +129,7 @@ def story(request):
     reddit = Reddit
     ensemble = ''
     stories = []
-    _story = "<li>" + str(reddit.copypasta()) + "</li> <br>"
+    _story = "<li>" + str(Reddit.copypasta()) + "</li> <br>"
     stories += _story
 
     for i in range(len(stories)):
