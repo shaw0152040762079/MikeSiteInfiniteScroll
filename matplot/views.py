@@ -1,17 +1,18 @@
 import base64
 import io
 import os
+import this
 import urllib
 from datetime import datetime, timedelta
 
 import matplotlib.pyplot as plt
-import self
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.views.decorators.csrf import csrf_exempt
 from pandas_datareader import data
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.shortcuts import render
+
 
 
 def experiment(request):
