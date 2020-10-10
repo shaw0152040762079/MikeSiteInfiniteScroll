@@ -12,6 +12,10 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 
 from pathlib import Path
 import os
+import django_heroku
+
+django_heroku.settings(locals())
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
@@ -32,6 +36,9 @@ STATIC_URL='/static/'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
+
+PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
+
 
 ALLOWED_HOSTS = ['*']
 
