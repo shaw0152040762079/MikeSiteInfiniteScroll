@@ -15,7 +15,5 @@ urlpatterns = [
                   path('meme', views.meme, name='meme'),
                   path('story', views.story, name='story'),
                   path('art', views.art, name='art'),
-                  path('test', views.meme,  name='test'),
-                  path('definitions', views.definitions, name='definitions'),
-                  path('experiment', views.experiment, name='experiment'),
+
               ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
