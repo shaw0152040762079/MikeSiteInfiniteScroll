@@ -33,7 +33,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 
