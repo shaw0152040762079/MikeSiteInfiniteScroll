@@ -5,6 +5,7 @@ import urllib
 from datetime import datetime, timedelta
 
 import matplotlib.pyplot as plt
+import self
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.views.decorators.csrf import csrf_exempt
@@ -70,12 +71,12 @@ def add(request):
     return render(request, 'result.html', {'data2': uri})
 
 
+self.arts = ''
 
 
 def art(request):
     from matplot import Reddit
     reddit = Reddit.Reddit()
-    arts = ''
 
     urls = []
 
@@ -90,17 +91,17 @@ def art(request):
         urls += "<ol> <img src =  '" + str(url1) + " ' alt='no image' height '600' width= '465'> </ol> "
 
     for i in range(len(urls)):
-            arts += urls[i]
+        self.arts += urls[i]
 
-    return render(request, 'art.html', {'art': arts})
+    return render(request, 'art.html', {'art': self.arts})
 
 
+self.memes = ''
 
 
 def meme(request):
     from matplot import Reddit
     reddit = Reddit.Reddit()
-    memes = ''
     urls = []
 
     for i in range(4):
@@ -115,27 +116,27 @@ def meme(request):
         urls += "<li> <img src =  '" + str(url1) + " ' alt='no image' height '600' width= '465'> </li> "
 
     for i in range(len(urls)):
-        memes += urls[i]
+        self.memes += urls[i]
 
-    return render(request, 'meme.html', {'memes': memes})
+    return render(request, 'meme.html', {'memes': self.memes})
 
 
 # Create your views here.
 
+self.ensemble = ''
 
 
 def story(request):
     from matplot import Reddit
     reddit = Reddit
-    ensemble = ''
     stories = []
     _story = "<li>" + str(Reddit.copypasta()) + "</li> <br>"
     stories += _story
 
     for i in range(len(stories)):
-        ensemble += stories[i]
+        self.ensemble += stories[i]
 
-    return render(request, 'story.html', {'story': ensemble})
+    return render(request, 'story.html', {'story': self.ensemble})
 
 
 def definitions(request):
