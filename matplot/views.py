@@ -9,12 +9,6 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.views.decorators.csrf import csrf_exempt
 from pandas_datareader import data
-from self import self
-
-from django.shortcuts import render
-from matplot.models import Post
-from django.views.generic.list import ListView
-
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.shortcuts import render
 

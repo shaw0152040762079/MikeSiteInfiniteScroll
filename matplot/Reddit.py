@@ -4,20 +4,19 @@ import random
 from typing import Dict, Any, Union
 
 import praw as praw
-from self import self
+
 
 
 import os
 
 
 class Reddit(object):
-    self.reddit = praw.Reddit(client_id=os.environ['client_id'], client_secret=os.environ['client_secret'],
+    reddit = praw.Reddit(client_id=os.environ['client_id'], client_secret=os.environ['client_secret'],
                               user_agent=os.environ['user_agent'])
 
-    self.posturl = ''
+    posturl = ''
 
-    def __init__(self):
-        self.artUrls: Dict[Union[int, Any], Union[str, Any]] = {0: 'Portraitart',
+    artUrls: Dict[Union[int, Any], Union[str, Any]] = {0: 'Portraitart',
                     1: 'Art',
                     2: 'painting',
                     3: 'PixelArt',
@@ -29,7 +28,7 @@ class Reddit(object):
                     9: 'VaporwaveAesthetics',
                     10: 'Gouache'}
 
-        self.memeUrls = {0: 'dankmemes',
+    memeUrls = {0: 'dankmemes',
                      1: 'plantmemes',
                      2: 'chasersriseup',
                      3: 'comedyheaven'}
@@ -40,28 +39,28 @@ class Reddit(object):
 
 
 def getpost(url):
-    submission = self.reddit.submission(url=url)
+    submission = reddit.submission(url=url)
     return submission
 
 
 def saveurl():
-    return self.posturl
+    return posturl
 
 
 def geturlcopypasta():
-    return self.urlcopypasta
+    return urlcopypasta
 
 
 def getartUrls():
-    return self.artUrls
+    return artUrls
 
 
 def getmemeUrls():
-    return self.memeUrls
+    return memeUrls
 
 
 def copypasta():
-    sub = self.reddit.subreddit('copypasta')
+    sub = reddit.subreddit('copypasta')
 
     posts = [post for post in sub.hot(limit=20)]
     random_post_number = random.randint(0, 19)
@@ -79,7 +78,7 @@ def redditimage(urlKeytoValue, urlnum):
     posts = [post for post in sub.hot(limit=20)]
     random_post_number = random.randint(0, 19)
     random_post = posts[random_post_number]
-    self.posturl = random_post.url
+    posturl = random_post.url
     return random_post.url
 
 
