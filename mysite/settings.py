@@ -22,7 +22,7 @@ BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 
 
-SECRET_KEY = os.environ['django']
+SECRET_KEY = DJANGO
 
 STATIC_ROOT = "C:/Users/User/PycharmProjects/mysite/matplot/static"
 
