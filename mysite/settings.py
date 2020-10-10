@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 
 
-SECRET_KEY = os.environ('DJANGO')
+SECRET_KEY = os.environ['DJANGO']
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 

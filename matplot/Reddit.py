@@ -11,7 +11,7 @@ import os
 
 
 class Reddit(object):
-    self.reddit = praw.Reddit(client_id=os.environ('client_id'), client_secret=os.environ['client_secret'],
+    self.reddit = praw.Reddit(client_id=os.environ['client_id'], client_secret=os.environ['client_secret'],
                               user_agent=os.environ['user_agent'])
 
     self.posturl = ''
