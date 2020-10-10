@@ -75,6 +75,8 @@ def getmemeUrls():
 
 
 def copypasta():
+    reddit = praw.Reddit(client_id=os.environ['client_id'], client_secret=os.environ['client_secret'],
+                         user_agent=os.environ['user_agent'])
     sub = reddit.subreddit('copypasta')
 
     posts = [post for post in sub.hot(limit=20)]
@@ -97,11 +99,6 @@ def redditimage(urlKeytoValue, urlnum):
     return random_post.url
 
 
-def fetch():
-    reddit = praw.Reddit(client_id='mJsxJuhrpiWMrw', client_secret='Noarg0lqItC2a7hvDe_8pxbgVLc', user_agent='cry.bot')
-    sr = reddit.subreddit("pewdiepiesubmissions").random()
-    if not sr.is_self:  # We only want to work with link posts
-        slink = sr.url
 
 
 # Take a url dictionary of reddit.json links and the size of it returns the image of a random post from one of 8
