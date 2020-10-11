@@ -82,8 +82,9 @@ def meme(request):
         urls += "<li> <img src =  '" + str(url1) + " ' alt='no image' height '600' width= '465'> </li> "
     # Add them to the arts list
     for i in range(len(urls)):
-        request.session['memes'] = memes
-        return render(request, 'meme.html', {'memes': memes})
+        memes += urls[i]
+    request.session['memes'] = memes
+    return render(request, 'meme.html', {'memes': memes})
 
 
 # Create your views here.
