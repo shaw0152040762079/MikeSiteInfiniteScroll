@@ -15,49 +15,75 @@ def add(request):
 
 def art(request):
     from matplot import Reddit
-    reddit = Reddit.Reddit()
+    # Check to see if previous arts object exists from last session
     arts = request.session.get('arts', '')
-
     urls = []
+    if arts == '':
+        for i in range(3):
+            url1 = str((Reddit.redditimage(Reddit.getartUrls(), len(Reddit.getartUrls()) - 1)))
+            data_type = url1[-4:]
+            # Check to make sure they are images
+            while '.jpg' != data_type and '.png' != data_type and '.gif' != data_type:
+                url1 = str((Reddit.redditimage(Reddit.getartUrls(), len(Reddit.getartUrls()) - 1)))
+                data_type = url1[-4:]
+            # load all of the images to an HTML list
+            urls += "<li> <img src =  '" + str(url1) + " ' alt='no image' height '600' width= '465'> </li> "
+        # Add them to the arts list
+        for i in range(len(urls)):
+            arts += urls[i]
 
-    for i in range(4):
+    # Get random 4 images from reddit related to art
+    for i in range(1):
         url1 = str((Reddit.redditimage(Reddit.getartUrls(), len(Reddit.getartUrls()) - 1)))
         data_type = url1[-4:]
-
+        # Check to make sure they are images
         while '.jpg' != data_type and '.png' != data_type and '.gif' != data_type:
             url1 = str((Reddit.redditimage(Reddit.getartUrls(), len(Reddit.getartUrls()) - 1)))
             data_type = url1[-4:]
-
-        urls += "<ol> <img src =  '" + str(url1) + " ' alt='no image' height '600' width= '465'> </ol> "
-
+        # load all of the images to an HTML list
+        urls += "<li> <img src =  '" + str(url1) + " ' alt='no image' height '600' width= '465'> </li> "
+    # Add them to the arts list
     for i in range(len(urls)):
         arts += urls[i]
+    # Save the arts objects in a session object so that when refreshing happens they remain
     request.session['arts'] = arts
     return render(request, 'art.html', {'art': arts})
 
 
 def meme(request):
     from matplot import Reddit
-    reddit = Reddit.Reddit()
+    # Check to see if previous memes object exists from last session
     memes = request.session.get('memes', '')
 
     urls = []
-
-    for i in range(4):
-        url1 = str((Reddit.redditimage(Reddit.getmemeUrls(), len(Reddit.getmemeUrls()) - 1)))
-        data_type = url1[-4:]
-
-        while '.jpg' != data_type and '.png' != data_type and '.gif' != data_type:
-            print(url1)
+    if memes == '':
+        for i in range(3):
             url1 = str((Reddit.redditimage(Reddit.getmemeUrls(), len(Reddit.getmemeUrls()) - 1)))
             data_type = url1[-4:]
+            # Check to make sure they are images
+            while '.jpg' != data_type and '.png' != data_type and '.gif' != data_type:
+                url1 = str((Reddit.redditimage(Reddit.getmemeUrls(), len(Reddit.getmemeUrls()) - 1)))
+                data_type = url1[-4:]
+            # load all of the images to an HTML list
+            urls += "<li> <img src =  '" + str(url1) + " ' alt='no image' height '600' width= '465'> </li> "
+        # Add them to the arts list
+        for i in range(len(urls)):
+            memes += urls[i]
 
+    # Get random images from reddit related to art
+    for i in range(1):
+        url1 = str((Reddit.redditimage(Reddit.getmemeUrls(), len(Reddit.getmemeUrls()) - 1)))
+        data_type = url1[-4:]
+        # Check to make sure they are images
+        while '.jpg' != data_type and '.png' != data_type and '.gif' != data_type:
+            url1 = str((Reddit.redditimage(Reddit.getmemeUrls(), len(Reddit.getmemeUrls()) - 1)))
+            data_type = url1[-4:]
+        # load all of the images to an HTML list
         urls += "<li> <img src =  '" + str(url1) + " ' alt='no image' height '600' width= '465'> </li> "
-
+    # Add them to the arts list
     for i in range(len(urls)):
-        memes += urls[i]
-    request.session['memes'] = memes
-    return render(request, 'meme.html', {'memes': memes})
+        request.session['memes'] = memes
+        return render(request, 'meme.html', {'memes': memes})
 
 
 # Create your views here.

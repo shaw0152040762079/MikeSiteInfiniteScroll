@@ -69,8 +69,7 @@ def getartUrls():
 def getmemeUrls():
     memeUrls = {0: 'dankmemes',
                 1: 'plantmemes',
-                2: 'chasersriseup',
-                3: 'comedyheaven'}
+                2: 'comedyheaven'}
     return memeUrls
 
 
