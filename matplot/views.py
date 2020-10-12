@@ -16,6 +16,10 @@ def add(request):
 def art(request):
     from matplot import Reddit
     # Check to see if previous arts object exists from last session
+    if request.GET.get('Bored? Click to clear cache') == 'Bored? Click to clear cache':
+        request.session['arts'] = ''
+        request.session.modified = True
+
     arts = request.session.get('arts', '')
     urls = []
     if arts == '':
@@ -47,6 +51,7 @@ def art(request):
         arts += urls[i]
     # Save the arts objects in a session object so that when refreshing happens they remain
     request.session['arts'] = arts
+    request.session.modified = True
     return render(request, 'art.html', {'art': arts})
 
 
@@ -93,7 +98,11 @@ def meme(request):
 def story(request):
     from matplot import Reddit
     reddit = Reddit
+    if request.GET.get('Bored? Click to clear cache') == 'Bored? Click to clear cache':
+        request.session['arts'] = ''
+        request.session.modified = True
     ensemble = request.session.get('ensemble', '')
+
 
     stories = []
     _story = "<li>" + str(Reddit.copypasta()) + "</li> <br>"
