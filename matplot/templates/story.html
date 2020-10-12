@@ -11,13 +11,22 @@
   <a class="active" href="story">Copypasta</a>
   <a href="art">Art</a>
 </div>
+<br>
+<br>
+<! --I know I should have used CSS instead of 5 breaks to lower the form and text I'm sorry at least we got to have this fun conversation though right?-->
+<br>
+<br>
+<br>
+<form method='get' action='#'>
+    <input type="submit" value="Bored? Click to clear cache" name="Bored? Click to clear cache"/>
+</form>
 
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
 <body>
-<div class="main">
+
 <ul>
  {% autoescape off %}
     {{ story }}
@@ -27,8 +36,6 @@
     <button onClick="window.location.reload();">Load More</button>
 
 
-
-</div>
 <script>
 window.onscroll = function(ev) {
     if ((window.innerHeight + window.scrollY ) >= document.body.offsetHeight) {

@@ -8,12 +8,14 @@
 
 
 <div class="topnav">
-  <a  href="/">Home</a>
-  <a  href="meme">Meme</a>
-  <a href="story">Copypasta</a>
-  <a class="active"  href="art">Art</a>
-</div>
+    <li>
+        <a  href="/">Home</a></li>
+      <li>  <a  href="meme">Meme</a></li>
+        <li><a href="story">Copypasta</a></li>
+        <li><a class="active"  href="art">Art</a></li>
 
+        </ul>
+</div>
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -21,6 +23,18 @@
 <body>
 <br>
 <br>
+<! --I know I should have used CSS instead of  breaks to lower the form and images I'm sorry at least we got to have this fun conversation though right?-->
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<form class="button" method='get' action='#'>
+    <input type="submit" value="Bored? Click to clear cache" name="Bored? Click to clear cache"/>
+</form>
 
 
 <b class="center" id="check"></b>
@@ -40,7 +54,7 @@ window.onscroll = function(ev) {
     if ((window.innerHeight + window.scrollY)  >= document.body.offsetHeight) {
         // you're at the bottom of the page
         document.getElementById('showScroll').innerHTML;
-
+        window.history.pushState({}, document.title, "/" + "art");
         window.scrollTo(0,document.body.scrollHeight);
         setTimeout(function (){location.reload()},200);
     }
