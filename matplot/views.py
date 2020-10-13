@@ -23,7 +23,7 @@ def art(request):
     arts = request.session.get('arts', '')
     urls = []
     if arts == '':
-        for i in range(3):
+        for i in range(6):
             url1 = str((Reddit.redditimage(Reddit.getartUrls(), len(Reddit.getartUrls()) - 1)))
             data_type = url1[-4:]
             # Check to make sure they are images
@@ -37,7 +37,7 @@ def art(request):
             arts += urls[i]
 
     # Get random 4 images from reddit related to art
-    for i in range(1):
+    for i in range(3):
         url1 = str((Reddit.redditimage(Reddit.getartUrls(), len(Reddit.getartUrls()) - 1)))
         data_type = url1[-4:]
         # Check to make sure they are images
@@ -62,7 +62,7 @@ def meme(request):
 
     urls = []
     if memes == '':
-        for i in range(3):
+        for i in range(8):
             url1 = str((Reddit.redditimage(Reddit.getmemeUrls(), len(Reddit.getmemeUrls()) - 1)))
             data_type = url1[-4:]
             # Check to make sure they are images
@@ -76,7 +76,7 @@ def meme(request):
             memes += urls[i]
 
     # Get random images from reddit related to art
-    for i in range(1):
+    for i in range(3):
         url1 = str((Reddit.redditimage(Reddit.getmemeUrls(), len(Reddit.getmemeUrls()) - 1)))
         data_type = url1[-4:]
         # Check to make sure they are images
