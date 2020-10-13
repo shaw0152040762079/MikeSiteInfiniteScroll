@@ -36,8 +36,8 @@ def art(request):
         for i in range(len(urls)):
             arts += urls[i]
 
-    # Get random 4 images from reddit related to art
-    for i in range(3):
+    # Get random images from reddit related to art
+    for i in range(1):
         url1 = str((Reddit.redditimage(Reddit.getartUrls(), len(Reddit.getartUrls()) - 1)))
         data_type = url1[-4:]
         # Check to make sure they are images
