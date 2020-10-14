@@ -1,51 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
-{% load static %}
-<link rel="stylesheet" type="text/css"
-      href="{% static 'css/main.css' %}">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
 
-
-<div class="topnav">
-  <a href="/">Home</a>
-  <a href="meme">Meme</a>
-  <a class="active" href="story">Copypasta</a>
-  <a href="art">Art</a>
-</div>
-<br>
-<br>
-<! --I know I should have used CSS instead of 5 breaks to lower the form and text I'm sorry at least we got to have this fun conversation though right?-->
-<br>
-<br>
-<br>
-<form method='get' action='#'>
-    <input type="submit" value="Bored? Click to clear cache" name="Bored? Click to clear cache"/>
-</form>
-
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Mike Site</a>
+    </div>
+      <ul class="nav navbar-nav">
+        <li><a  href="/">Home</a></li>
+        <li><a  href="meme">Meme</a></li>
+        <li><a href="story">Copypasta</a></li>
+        <li><a class="active"  href="art">Art</a></li>
+      </ul>
+  </div>
+</nav>
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
 <body>
+<br>
+<div class="col-xs-1" align="center">
+ <div class="container">
+  <div class="row">
+    <div class="col text-center">
+        <h3> Here are some Stories I hope you like them!</h3>
 
-<ul>
- {% autoescape off %}
-    {{ story }}
- {% endautoescape %}
-    </ul>
+<form class="button" method='get' action='#'>
+
+    <input class="btn btn-primary" type="submit" value="Bored? Click to clear cache" name="Bored? Click to clear cache"/>
+</form>
+    </div>
+  </div>
+ </div>
+</div>
+<br>
+<! --I know I should have used CSS instead of  breaks to lower the form and images I'm sorry at least we got to have this fun conversation though right?-->
+
+
+<br>
+<br>
+<br>
+<br>
+<div class="d-flex">
+  <ul class="list-inline mx-auto justify-content-center">
+    {% autoescape off %}
+         {{ story }}
+    {% endautoescape %}
+
+</ul>
+</div>
     <div class="loader" id ="showScroll"></div>
     <button onClick="window.location.reload();">Load More</button>
-
-
+<br>
+<br>
+<br>
 <script>
 window.onscroll = function(ev) {
-    if ((window.innerHeight + window.scrollY ) >= document.body.offsetHeight) {
+    if ((window.innerHeight + window.scrollY)+270  >= document.body.offsetHeight) {
         // you're at the bottom of the page
         document.getElementById('showScroll').innerHTML;
-
-        window.scrollTo(0,document.body.scrollHeight);
-        setTimeout(function (){location.reload()},200);
-    }
-};
+        window.history.pushState({}, document.title, "/" + "story");
+        location.reload()
+    }};
 </script>
+
 </body>
 </html>
