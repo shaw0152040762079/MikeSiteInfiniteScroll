@@ -27,11 +27,9 @@ def art(request):
             url1 = str((Reddit.redditimage(Reddit.getartUrls(), len(Reddit.getartUrls()) - 1)))
             data_type = url1[-4:]
             # Check to make sure they are images
-            while '.jpg' != data_type and '.png' != data_type and '.gif' != data_type:
-                url1 = str((Reddit.redditimage(Reddit.getartUrls(), len(Reddit.getartUrls()) - 1)))
-                data_type = url1[-4:]
-            # load all of the images to an HTML list
-            urls += "<li> <img src =  '" + str(url1) + " ' alt='no image' height '600' width= '465'> </li> "
+
+            if '.jpg' == data_type or '.png' == data_type or '.gif' == data_type:
+                urls += "<li> <img src =  '" + str(url1) + " ' alt='no image' height '600' width= '465'> </li> "
         # Add them to the arts list
         for i in range(len(urls)):
             arts += urls[i]
@@ -40,12 +38,11 @@ def art(request):
     for i in range(12):
         url1 = str((Reddit.redditimage(Reddit.getartUrls(), len(Reddit.getartUrls()) - 1)))
         data_type = url1[-4:]
+
         # Check to make sure they are images
-        while '.jpg' != data_type and '.png' != data_type and '.gif' != data_type:
-            url1 = str((Reddit.redditimage(Reddit.getartUrls(), len(Reddit.getartUrls()) - 1)))
-            data_type = url1[-4:]
-        # load all of the images to an HTML list
-        urls += "<li> <img src =  '" + str(url1) + " ' alt='no image' height '600' width= '465'> </li> "
+        if '.jpg' == data_type or '.png' == data_type or '.gif' == data_type:
+            urls += "<li> <img src =  '" + str(url1) + " ' alt='no image' height '600' width= '465'> </li> "
+
     # Add them to the arts list
     for i in range(len(urls)):
         arts += urls[i]
@@ -102,7 +99,6 @@ def story(request):
         request.session['arts'] = ''
         request.session.modified = True
     ensemble = request.session.get('ensemble', '')
-
 
     stories = []
     _story = "<li>" + str(Reddit.copypasta()) + "</li> <br>"
