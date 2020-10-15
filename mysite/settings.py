@@ -44,7 +44,7 @@ PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 
 ALLOWED_HOSTS = ['*']
 
-#WHITENOISE_USE_FINDERS=True
+WHITENOISE_USE_FINDERS=True
 
 # Application definition
 
