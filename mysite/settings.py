@@ -32,6 +32,9 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 STATIC_URL = '/static/'
 
+COMPRESS_ENABLED = os.environ.get('COMPRESS_ENABLED', False)
+
+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 DEBUG_PROPAGATE_EXCEPTIONS = True
@@ -41,7 +44,7 @@ PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 
 ALLOWED_HOSTS = ['*']
 
-WHITENOISE_USE_FINDERS=True
+#WHITENOISE_USE_FINDERS=True
 
 # Application definition
 
@@ -175,7 +178,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+#STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 
 STATIC_URL = '/static/'
