@@ -27,7 +27,7 @@ def art(request):
             url1 = str((Reddit.redditimage(Reddit.getartUrls(), len(Reddit.getartUrls()) - 1)))
             data_type = url1[-4:]
             # Check to make sure they are images
-            while '.jpg' != data_type and '.png' != data_type and '.gif' != data_type:
+            if '.jpg' == data_type or '.png' == data_type or '.gif' == data_type:
                 url1 = str((Reddit.redditimage(Reddit.getartUrls(), len(Reddit.getartUrls()) - 1)))
                 data_type = url1[-4:]
             # load all of the images to an HTML list
@@ -41,7 +41,7 @@ def art(request):
         url1 = str((Reddit.redditimage(Reddit.getartUrls(), len(Reddit.getartUrls()) - 1)))
         data_type = url1[-4:]
         # Check to make sure they are images
-        while '.jpg' != data_type and '.png' != data_type and '.gif' != data_type:
+        if '.jpg' == data_type or '.png' == data_type or '.gif' == data_type:
             url1 = str((Reddit.redditimage(Reddit.getartUrls(), len(Reddit.getartUrls()) - 1)))
             data_type = url1[-4:]
         # load all of the images to an HTML list
