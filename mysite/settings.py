@@ -36,7 +36,7 @@ COMPRESS_ENABLED = os.environ.get('COMPRESS_ENABLED', False)
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 DEBUG_PROPAGATE_EXCEPTIONS = True
 
 
