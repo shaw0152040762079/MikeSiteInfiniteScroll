@@ -24,7 +24,7 @@ def art(request):
     urls = []
     if arts == '':
         posts = Reddit.redditimager(Reddit.getartUrls(), len(Reddit.getartUrls()) - 1)
-        for i in range(10):
+        for i in range(6):
             data_type = posts[i].url[-4:]
             # Check to make sure they are images
             if '.jpg' == data_type or '.png' == data_type or '.gif' == data_type:

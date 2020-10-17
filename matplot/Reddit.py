@@ -81,7 +81,24 @@ def getartUrls():
                                                        7: 'Watercolor',
                                                        8: 'low_poly',
                                                        9: 'VaporwaveAesthetics',
-                                                       10: 'Gouache'}
+                                                       10: 'Gouache',
+                                                       11: 'RetroFuturism',
+                                                       12: 'itookapicture',
+                                                       13: 'museum',
+                                                       14: 'AmateurRoomPorn',
+                                                       15: 'retroanimeart',
+                                                       16: 'vintagebookcovers',
+                                                       17: 'ImaginaryFuturism',
+                                                       18: 'PopArtNouveau',
+                                                       19: 'ArchitecturePorn',
+                                                       20: 'ArtNouveau',
+                                                       21: 'ArtDeco',
+                                                       22: 'brutalism',
+                                                       23: 'EarthPorn',
+                                                       24: 'AbstractArt',
+                                                       25: 'CityPorn',
+                                                       26: 'impressionism',
+                                                       27: 'PopArt'}
     return artUrls
 
 
