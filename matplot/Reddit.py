@@ -26,6 +26,18 @@ class Reddit(object):
                                                        9: 'VaporwaveAesthetics',
                                                        10: 'Gouache'}
 
+    artUrls2: Dict[Union[int, Any], Union[str, Any]] = {0: 'https://www.reddit.com/r/portraitart.json',
+                                                       1: 'https://www.reddit.com/r/Art.json',
+                                                       2: 'https://www.reddit.com/r/painting.json',
+                                                       3: 'https://www.reddit.com/r/PixelArt.json',
+                                                       4: 'https://www.reddit.com/r/ArtHistory.json',
+                                                       5: 'https://www.reddit.com/r/oilpainting.json',
+                                                       6: 'https://www.reddit.com/r/DigitalPainting.json',
+                                                       7: 'https://www.reddit.com/r/Watercolor.json',
+                                                       8: 'https://www.reddit.com/r/low_poly.json',
+                                                       9: 'https://www.reddit.com/r/VaporwaveAesthetics.json',
+                                                       10: 'https://www.reddit.com/r/Gouache.json'}
+
     memeUrls = {0: 'dankmemes',
                 1: 'plantmemes',
                 2: 'chasersriseup',
@@ -44,6 +56,19 @@ def saveurl():
 def geturlcopypasta():
     return urlcopypasta
 
+def getartUrls2():
+    artUrls2: Dict[Union[int, Any], Union[str, Any]] = {0: 'https://www.reddit.com/r/portraitart.json',
+                                                       1: 'https://www.reddit.com/r/Art.json',
+                                                       2: 'https://www.reddit.com/r/painting.json',
+                                                       3: 'https://www.reddit.com/r/PixelArt.json',
+                                                       4: 'https://www.reddit.com/r/ArtHistory.json',
+                                                       5: 'https://www.reddit.com/r/oilpainting.json',
+                                                       6: 'https://www.reddit.com/r/DigitalPainting.json',
+                                                       7: 'https://www.reddit.com/r/Watercolor.json',
+                                                       8: 'https://www.reddit.com/r/low_poly.json',
+                                                       9: 'https://www.reddit.com/r/VaporwaveAesthetics.json',
+                                                       10: 'https://www.reddit.com/r/Gouache.json'}
+    return artUrls2
 
 def getartUrls():
     artUrls: Dict[Union[int, Any], Union[str, Any]] = {0: 'Portraitart',
@@ -91,6 +116,17 @@ def redditimage(urlKeytoValue, urlnum):
     random_post = posts[random_post_number]
     return random_post.url
 
+def redditimager(urlKeytoValue, urlnum):
+    reddit = praw.Reddit(client_id=os.environ['client_id'], client_secret=os.environ['client_secret'],
+                         user_agent=os.environ['user_agent'])
+    urlkey = random.randint(0, urlnum)
+    # create random number to decide which image pulled from array
+    url = (urlKeytoValue[urlkey])
+    sub = reddit.subreddit(url)
+
+    posts = [post for post in sub.hot(limit=19)]
+
+    return posts
 
 # Take a url dictionary of reddit.json links and the size of it returns the image of a random post from one of 8
 # random posts in the hot section

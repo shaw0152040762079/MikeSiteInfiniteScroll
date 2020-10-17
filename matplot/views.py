@@ -23,24 +23,25 @@ def art(request):
     arts = request.session.get('arts', '')
     urls = []
     if arts == '':
-        for i in range(3):
-            url1 = str((Reddit.redditimage(Reddit.getartUrls(), len(Reddit.getartUrls()) - 1)))
-            data_type = url1[-4:]
+        posts = Reddit.redditimager(Reddit.getartUrls(), len(Reddit.getartUrls()) - 1)
+        for i in range(10):
+            data_type = posts[i].url[-4:]
             # Check to make sure they are images
             if '.jpg' == data_type or '.png' == data_type or '.gif' == data_type:
-                urls += "<li> <img src =  '" + str(url1) + " ' alt='no image' height '600' width= '465'> </li> "
-            # load all of the images to an HTML list
+                urls += "<li> <img src =  '" + str(posts[i].url) + " ' alt='no image' height '600' width= '465'> </li> "
+        # load all of the images to an HTML list
         # Add them to the arts list
         for i in range(len(urls)):
             arts += urls[i]
 
     # Get random images from reddit related to art
-    for i in range(12):
-        url1 = str((Reddit.redditimage(Reddit.getartUrls(), len(Reddit.getartUrls()) - 1)))
-        data_type = url1[-4:]
+    posts = Reddit.redditimager(Reddit.getartUrls(), len(Reddit.getartUrls()) - 1)
+    for i in range(18):
+        data_type = posts[i].url[-4:]
         # Check to make sure they are images
         if '.jpg' == data_type or '.png' == data_type or '.gif' == data_type:
-            urls += "<li> <img src =  '" + str(url1) + " ' alt='no image' height '600' width= '465'> </li> "
+            print(posts[i].url)
+            urls += "<li> <img src =  '" + str(posts[i].url) + " ' alt='no image' height '600' width= '465'> </li> "
 
     # Add them to the arts list
     for i in range(len(urls)):
