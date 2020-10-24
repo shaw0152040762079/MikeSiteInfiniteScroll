@@ -11,8 +11,6 @@
     </div>
       <ul class="nav navbar-nav">
         <li><a  href="/">Home</a></li>
-        <li><a  href="meme">Meme</a></li>
-        <li><a href="story">Copypasta</a></li>
         <li><a class="active"  href="art">Art</a></li>
       </ul>
   </div>
@@ -22,20 +20,15 @@
 </head>
 <body>
 <br>
-<div class="col-xs-1" align="center">
- <div class="container">
-  <div class="row">
-    <div class="col text-center">
-        <h3> Enjoy the infinite scroll of art!</h3>
 
-<form class="button" method='get' action='#'>
+    <div class="text-center">
+        <h3> Enjoy the infinite scroll of art! (If you want more art to load click the load more button at the bottom OR scroll all the way to the very Bottom)</h3>
 
-    <input class="btn btn-primary" type="submit" value="Bored? Click to clear cache" name="Bored? Click to clear cache"/>
-</form>
+        <form class="button" method='get' action='#'>
+            <input class="btn btn-primary" type="submit" value="Bored? Click to clear cache" name="Bored? Click to clear cache"/>
+        </form>
     </div>
-   </div>
-  </div>
-</div>
+
 <br>
 <! --I know I should have used CSS instead of  breaks to lower the form and images I'm sorry at least we got to have this fun conversation though right?-->
 
@@ -44,13 +37,16 @@
 <br>
 <br>
 <br>
-<div class="d-flex">
-  <ul class="list-inline mx-auto justify-content-center">
+
+<div class="text-center">
+    <div class="d-flex">
+        <ul class="list-inline mx-auto justify-content-center">
     {% autoescape off %}
          {{ art }}
     {% endautoescape %}
 
-</ul>
+        </ul>
+    </div>
 </div>
     <div class="loader" id ="showScroll"></div>
     <button onClick="window.location.reload();">Load More</button>
@@ -59,7 +55,7 @@
 <br>
 <script>
 window.onscroll = function(ev) {
-    if ((window.innerHeight + window.scrollY)+270  >= document.body.offsetHeight) {
+    if ((window.innerHeight + window.scrollY)  >= document.body.offsetHeight) {
         // you're at the bottom of the page
         document.getElementById('showScroll').innerHTML;
         window.history.pushState({}, document.title, "/" + "art");
