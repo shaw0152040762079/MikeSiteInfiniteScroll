@@ -24,8 +24,8 @@ def art(request):
     urls = []
 
     # Get random images from reddit related to art
-    posts = Reddit.redditimager(Reddit.getartUrls(), len(Reddit.getartUrls()) - 1)
-    for i in range(18):
+    posts = Reddit.redditimager(Reddit.Reddit.artUrls, len(Reddit.Reddit.artUrls) - 1)
+    for i in range(19):
         data_type = posts[i].url[-4:]
         # Check to make sure they are images
         if '.jpg' == data_type or '.png' == data_type or '.gif' == data_type:
@@ -35,7 +35,7 @@ def art(request):
     # Add them to the arts list
     for i in range(len(urls)):
         arts += urls[i]
-    # Save the arts objects in a session object so that when refreshing happens they remain
+    # Save the arts objects in a session object so that when refreshing happens they remain in a session object
     request.session['arts'] = arts
     request.session.modified = True
     return render(request, 'art.html', {'art': arts})

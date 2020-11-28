@@ -14,6 +14,7 @@ class Reddit(object):
 
     posturl = ''
 
+
     artUrls: Dict[Union[int, Any], Union[str, Any]] = {0: 'Portraitart',
                                                        1: 'Art',
                                                        2: 'painting',
@@ -24,7 +25,25 @@ class Reddit(object):
                                                        7: 'Watercolor',
                                                        8: 'low_poly',
                                                        9: 'VaporwaveAesthetics',
-                                                       10: 'Gouache'}
+                                                       10: 'Gouache',
+                                                       11: 'RetroFuturism',
+                                                       12: 'itookapicture',
+                                                       13: 'museum',
+                                                       14: 'AmateurRoomPorn',
+                                                       15: 'retroanimeart',
+                                                       16: 'vintagebookcovers',
+                                                       17: 'ImaginaryFuturism',
+                                                       18: 'PopArtNouveau',
+                                                       19: 'ArchitecturePorn',
+                                                       20: 'ArtNouveau',
+                                                       21: 'ArtDeco',
+                                                       22: 'brutalism',
+                                                       23: 'EarthPorn',
+                                                       24: 'AbstractArt',
+                                                       25: 'CityPorn',
+                                                       26: 'impressionism',
+                                                       27: 'PopArt'}
+
 
     artUrls2: Dict[Union[int, Any], Union[str, Any]] = {0: 'https://www.reddit.com/r/portraitart.json',
                                                        1: 'https://www.reddit.com/r/Art.json',
@@ -70,36 +89,7 @@ def getartUrls2():
                                                        10: 'https://www.reddit.com/r/Gouache.json'}
     return artUrls2
 
-def getartUrls():
-    artUrls: Dict[Union[int, Any], Union[str, Any]] = {0: 'Portraitart',
-                                                       1: 'Art',
-                                                       2: 'painting',
-                                                       3: 'PixelArt',
-                                                       4: 'ArtHistory',
-                                                       5: 'oilpainting',
-                                                       6: 'DigitalPainting',
-                                                       7: 'Watercolor',
-                                                       8: 'low_poly',
-                                                       9: 'VaporwaveAesthetics',
-                                                       10: 'Gouache',
-                                                       11: 'RetroFuturism',
-                                                       12: 'itookapicture',
-                                                       13: 'museum',
-                                                       14: 'AmateurRoomPorn',
-                                                       15: 'retroanimeart',
-                                                       16: 'vintagebookcovers',
-                                                       17: 'ImaginaryFuturism',
-                                                       18: 'PopArtNouveau',
-                                                       19: 'ArchitecturePorn',
-                                                       20: 'ArtNouveau',
-                                                       21: 'ArtDeco',
-                                                       22: 'brutalism',
-                                                       23: 'EarthPorn',
-                                                       24: 'AbstractArt',
-                                                       25: 'CityPorn',
-                                                       26: 'impressionism',
-                                                       27: 'PopArt'}
-    return artUrls
+
 
 
 def getmemeUrls():
