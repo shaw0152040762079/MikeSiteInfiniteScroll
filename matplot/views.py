@@ -21,20 +21,15 @@ def art(request):
         request.session.modified = True
 
     arts = request.session.get('arts', '')
-    urls = []
 
     # Get random images from reddit related to art
-    posts = Reddit.redditimager(Reddit.Reddit.artUrls, len(Reddit.Reddit.artUrls) - 1)
-    for i in range(19):
-        data_type = posts[i].url[-4:]
+    posts = Reddit.reddit_imager(Reddit.Reddit.art_urls, len(Reddit.Reddit.art_urls) - 1)
+    for post in posts:
+        data_type = post.url[-4:]
         # Check to make sure they are images
         if '.jpg' == data_type or '.png' == data_type or '.gif' == data_type:
-            print(posts[i].url)
-            urls += "<li> <img src =  '" + str(posts[i].url) + " ' alt='no image' height '600' width= '465'> </li> "
+            arts += "<li> <img src =  '" + str(post.url) + " ' alt='no image' height '600' width= '465'> </li> "
 
-    # Add them to the arts list
-    for i in range(len(urls)):
-        arts += urls[i]
     # Save the arts objects in a session object so that when refreshing happens they remain in a session object
     request.session['arts'] = arts
     request.session.modified = True

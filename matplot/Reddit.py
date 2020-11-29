@@ -14,82 +14,79 @@ class Reddit(object):
 
     posturl = ''
 
+    art_urls: Dict[Union[int, Any], Union[str, Any]] = {0: 'Portraitart',
+                                                        1: 'Art',
+                                                        2: 'painting',
+                                                        3: 'PixelArt',
+                                                        4: 'ArtHistory',
+                                                        5: 'oilpainting',
+                                                        6: 'DigitalPainting',
+                                                        7: 'Watercolor',
+                                                        8: 'low_poly',
+                                                        9: 'VaporwaveAesthetics',
+                                                        10: 'Gouache',
+                                                        11: 'RetroFuturism',
+                                                        12: 'itookapicture',
+                                                        13: 'museum',
+                                                        14: 'AmateurRoomPorn',
+                                                        15: 'retroanimeart',
+                                                        16: 'vintagebookcovers',
+                                                        17: 'ImaginaryFuturism',
+                                                        18: 'PopArtNouveau',
+                                                        19: 'ArchitecturePorn',
+                                                        20: 'ArtNouveau',
+                                                        21: 'ArtDeco',
+                                                        22: 'brutalism',
+                                                        23: 'EarthPorn',
+                                                        24: 'AbstractArt',
+                                                        25: 'CityPorn',
+                                                        26: 'impressionism',
+                                                        27: 'PopArt'}
 
-    artUrls: Dict[Union[int, Any], Union[str, Any]] = {0: 'Portraitart',
-                                                       1: 'Art',
-                                                       2: 'painting',
-                                                       3: 'PixelArt',
-                                                       4: 'ArtHistory',
-                                                       5: 'oilpainting',
-                                                       6: 'DigitalPainting',
-                                                       7: 'Watercolor',
-                                                       8: 'low_poly',
-                                                       9: 'VaporwaveAesthetics',
-                                                       10: 'Gouache',
-                                                       11: 'RetroFuturism',
-                                                       12: 'itookapicture',
-                                                       13: 'museum',
-                                                       14: 'AmateurRoomPorn',
-                                                       15: 'retroanimeart',
-                                                       16: 'vintagebookcovers',
-                                                       17: 'ImaginaryFuturism',
-                                                       18: 'PopArtNouveau',
-                                                       19: 'ArchitecturePorn',
-                                                       20: 'ArtNouveau',
-                                                       21: 'ArtDeco',
-                                                       22: 'brutalism',
-                                                       23: 'EarthPorn',
-                                                       24: 'AbstractArt',
-                                                       25: 'CityPorn',
-                                                       26: 'impressionism',
-                                                       27: 'PopArt'}
+    art_urls2: Dict[Union[int, Any], Union[str, Any]] = {0: 'https://www.reddit.com/r/portraitart.json',
+                                                        1: 'https://www.reddit.com/r/Art.json',
+                                                        2: 'https://www.reddit.com/r/painting.json',
+                                                        3: 'https://www.reddit.com/r/PixelArt.json',
+                                                        4: 'https://www.reddit.com/r/ArtHistory.json',
+                                                        5: 'https://www.reddit.com/r/oilpainting.json',
+                                                        6: 'https://www.reddit.com/r/DigitalPainting.json',
+                                                        7: 'https://www.reddit.com/r/Watercolor.json',
+                                                        8: 'https://www.reddit.com/r/low_poly.json',
+                                                        9: 'https://www.reddit.com/r/VaporwaveAesthetics.json',
+                                                        10: 'https://www.reddit.com/r/Gouache.json'}
 
-
-    artUrls2: Dict[Union[int, Any], Union[str, Any]] = {0: 'https://www.reddit.com/r/portraitart.json',
-                                                       1: 'https://www.reddit.com/r/Art.json',
-                                                       2: 'https://www.reddit.com/r/painting.json',
-                                                       3: 'https://www.reddit.com/r/PixelArt.json',
-                                                       4: 'https://www.reddit.com/r/ArtHistory.json',
-                                                       5: 'https://www.reddit.com/r/oilpainting.json',
-                                                       6: 'https://www.reddit.com/r/DigitalPainting.json',
-                                                       7: 'https://www.reddit.com/r/Watercolor.json',
-                                                       8: 'https://www.reddit.com/r/low_poly.json',
-                                                       9: 'https://www.reddit.com/r/VaporwaveAesthetics.json',
-                                                       10: 'https://www.reddit.com/r/Gouache.json'}
-
-    memeUrls = {0: 'dankmemes',
+    meme_urls = {0: 'dankmemes',
                 1: 'plantmemes',
                 2: 'chasersriseup',
                 3: 'comedyheaven'}
 
 
-def getpost(url):
+def get_post(url):
     submission = reddit.submission(url=url)
     return submission
 
 
-def saveurl():
+def save_url():
     return posturl
 
 
-def geturlcopypasta():
+def get_url_copypasta():
     return urlcopypasta
 
-def getartUrls2():
+
+def get_art_Urls2():
     artUrls2: Dict[Union[int, Any], Union[str, Any]] = {0: 'https://www.reddit.com/r/portraitart.json',
-                                                       1: 'https://www.reddit.com/r/Art.json',
-                                                       2: 'https://www.reddit.com/r/painting.json',
-                                                       3: 'https://www.reddit.com/r/PixelArt.json',
-                                                       4: 'https://www.reddit.com/r/ArtHistory.json',
-                                                       5: 'https://www.reddit.com/r/oilpainting.json',
-                                                       6: 'https://www.reddit.com/r/DigitalPainting.json',
-                                                       7: 'https://www.reddit.com/r/Watercolor.json',
-                                                       8: 'https://www.reddit.com/r/low_poly.json',
-                                                       9: 'https://www.reddit.com/r/VaporwaveAesthetics.json',
-                                                       10: 'https://www.reddit.com/r/Gouache.json'}
+                                                        1: 'https://www.reddit.com/r/Art.json',
+                                                        2: 'https://www.reddit.com/r/painting.json',
+                                                        3: 'https://www.reddit.com/r/PixelArt.json',
+                                                        4: 'https://www.reddit.com/r/ArtHistory.json',
+                                                        5: 'https://www.reddit.com/r/oilpainting.json',
+                                                        6: 'https://www.reddit.com/r/DigitalPainting.json',
+                                                        7: 'https://www.reddit.com/r/Watercolor.json',
+                                                        8: 'https://www.reddit.com/r/low_poly.json',
+                                                        9: 'https://www.reddit.com/r/VaporwaveAesthetics.json',
+                                                        10: 'https://www.reddit.com/r/Gouache.json'}
     return artUrls2
-
-
 
 
 def getmemeUrls():
@@ -123,7 +120,8 @@ def redditimage(urlKeytoValue, urlnum):
     random_post = posts[random_post_number]
     return random_post.url
 
-def redditimager(urlKeytoValue, urlnum):
+
+def reddit_imager(urlKeytoValue, urlnum):
     reddit = praw.Reddit(client_id=os.environ['client_id'], client_secret=os.environ['client_secret'],
                          user_agent=os.environ['user_agent'])
     urlkey = random.randint(0, urlnum)
@@ -134,6 +132,7 @@ def redditimager(urlKeytoValue, urlnum):
     posts = [post for post in sub.hot(limit=19)]
 
     return posts
+
 
 # Take a url dictionary of reddit.json links and the size of it returns the image of a random post from one of 8
 # random posts in the hot section
