@@ -15,11 +15,11 @@ def add(request):
 
 def art(request):
     from matplot import Reddit
-    # Check to see if previous arts object exists from last session
+    # Clear session if button is clicked
     if request.GET.get('Bored? Click to clear cache') == 'Bored? Click to clear cache':
         request.session['arts'] = ''
         request.session.modified = True
-
+    # Check to see if previous arts object exists from last session
     arts = request.session.get('arts', '')
 
     # Get random images from reddit related to art
